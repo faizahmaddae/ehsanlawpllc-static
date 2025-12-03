@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Section Options | Ehsan Law</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --color-navy-800: #1a2a4a;
+      --color-navy-700: #243756;
+      --color-navy-600: #2e4466;
+      --color-gold-500: #c9a54d;
+      --color-gold-400: #d4a853;
+      --color-teal-600: #0d7377;
+      --color-white: #ffffff;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #f5f5f5;
+    }
+    
+    .page-title {
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--color-navy-800);
+      color: white;
+    }
+    
+    .page-title h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    
+    .page-title p {
+      opacity: 0.8;
+    }
+    
+    .hero-option {
+      margin: 40px auto;
+      max-width: 1400px;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    
+    .hero-option__label {
+      background: var(--color-gold-500);
+      color: var(--color-navy-800);
+      padding: 15px 30px;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .btn-primary {
+      background: var(--color-gold-500);
+      color: var(--color-navy-800);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+    
+    .btn-lg {
+      padding: 16px 32px;
+      font-size: 16px;
+    }
+
+    /* ==========================================
+       HERO 1: Split Layout with Image
+       ========================================== */
+    .hero-1 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 600px;
+      background: linear-gradient(135deg, var(--color-navy-800) 0%, var(--color-navy-700) 100%);
+    }
+    
+    .hero-1__content {
+      padding: 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .hero-1__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201, 165, 77, 0.2);
+      color: var(--color-gold-400);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      width: fit-content;
+      margin-bottom: 24px;
+    }
+    
+    .hero-1__title {
+      font-size: 48px;
+      font-weight: 800;
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    
+    .hero-1__title span {
+      color: var(--color-gold-400);
+    }
+    
+    .hero-1__subtitle {
+      font-size: 18px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    
+    .hero-1__cta {
+      display: flex;
+      gap: 16px;
+    }
+    
+    .hero-1__image {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-1__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .hero-1__image::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 100px;
+      background: linear-gradient(90deg, var(--color-navy-700), transparent);
+      z-index: 1;
+    }
+
+    /* ==========================================
+       HERO 2: Full Background with Overlay
+       ========================================== */
+    .hero-2 {
+      min-height: 650px;
+      background: linear-gradient(rgba(26, 42, 74, 0.85), rgba(26, 42, 74, 0.9)), 
+                  url('https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .hero-2__content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    
+    .hero-2__badge {
+      display: inline-block;
+      background: var(--color-gold-500);
+      color: var(--color-navy-800);
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+    
+    .hero-2__title {
+      font-size: 56px;
+      font-weight: 800;
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    
+    .hero-2__subtitle {
+      font-size: 20px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+    
+    .hero-2__cta {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+    
+    .hero-2__stats {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    .hero-2__stat {
+      text-align: center;
+    }
+    
+    .hero-2__stat-number {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--color-gold-400);
+    }
+    
+    .hero-2__stat-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 4px;
+    }
+
+    /* ==========================================
+       HERO 3: Minimal with Large Text
+       ========================================== */
+    .hero-3 {
+      min-height: 600px;
+      background: var(--color-navy-800);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-3::before {
+      content: '';
+      position: absolute;
+      right: -200px;
+      top: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(201, 165, 77, 0.1) 0%, transparent 70%);
+    }
+    
+    .hero-3__content {
+      max-width: 900px;
+      padding: 60px;
+    }
+    
+    .hero-3__eyebrow {
+      color: var(--color-gold-400);
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+    
+    .hero-3__title {
+      font-size: 64px;
+      font-weight: 800;
+      color: white;
+      line-height: 1.05;
+      margin-bottom: 30px;
+    }
+    
+    .hero-3__line {
+      width: 80px;
+      height: 4px;
+      background: var(--color-gold-500);
+      margin-bottom: 30px;
+    }
+    
+    .hero-3__subtitle {
+      font-size: 20px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+    
+    .hero-3__cta {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    
+    .hero-3__phone {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    
+    .hero-3__phone-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--color-teal-600);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ==========================================
+       HERO 4: Card Style with Trust Elements
+       ========================================== */
+    .hero-4 {
+      min-height: 650px;
+      background: linear-gradient(135deg, #0f1c32 0%, var(--color-navy-800) 50%, var(--color-navy-700) 100%);
+      display: flex;
+      align-items: center;
+      padding: 60px 0;
+    }
+    
+    .hero-4__grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    
+    .hero-4__content {
+      padding-right: 40px;
+    }
+    
+    .hero-4__trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(13, 115, 119, 0.3);
+      border: 1px solid var(--color-teal-600);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+    
+    .hero-4__title {
+      font-size: 52px;
+      font-weight: 800;
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    
+    .hero-4__title em {
+      font-style: normal;
+      color: var(--color-gold-400);
+    }
+    
+    .hero-4__subtitle {
+      font-size: 18px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    
+    .hero-4__features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    
+    .hero-4__feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.9);
+      font-size: 15px;
+    }
+    
+    .hero-4__feature-icon {
+      width: 24px;
+      height: 24px;
+      background: var(--color-gold-500);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-navy-800);
+      font-size: 14px;
+    }
+    
+    .hero-4__card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+    }
+    
+    .hero-4__card-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-navy-800);
+      margin-bottom: 20px;
+    }
+    
+    .hero-4__card-text {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    
+    .hero-4__card-phone {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--color-navy-800);
+      text-decoration: none;
+      margin-bottom: 20px;
+    }
+    
+    .hero-4__card-btn {
+      width: 100%;
+      text-align: center;
+      background: var(--color-navy-800);
+      color: white;
+      padding: 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* ==========================================
+       HERO 5: Video Background Style (Static)
+       ========================================== */
+    .hero-5 {
+      min-height: 700px;
+      background: linear-gradient(to right, rgba(26, 42, 74, 0.95) 0%, rgba(26, 42, 74, 0.7) 50%, rgba(26, 42, 74, 0.4) 100%),
+                  url('https://images.pexels.com/photos/5669602/pexels-photo-5669602.jpeg?auto=compress&cs=tinysrgb&w=1600') right center/cover;
+      display: flex;
+      align-items: center;
+    }
+    
+    .hero-5__content {
+      max-width: 650px;
+      padding: 60px;
+    }
+    
+    .hero-5__label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--color-gold-400);
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    
+    .hero-5__label::before {
+      content: '';
+      width: 40px;
+      height: 2px;
+      background: var(--color-gold-400);
+    }
+    
+    .hero-5__title {
+      font-size: 54px;
+      font-weight: 800;
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    
+    .hero-5__subtitle {
+      font-size: 18px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    
+    .hero-5__quote {
+      background: rgba(255,255,255,0.1);
+      border-left: 4px solid var(--color-gold-500);
+      padding: 20px 24px;
+      margin-bottom: 36px;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .hero-5__quote-text {
+      font-style: italic;
+      color: rgba(255,255,255,0.9);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    
+    .hero-5__quote-author {
+      color: var(--color-gold-400);
+      font-weight: 600;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+    
+    .hero-5__cta {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-1, .hero-4__grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-1__image {
+        min-height: 300px;
+      }
+      .hero-1__title, .hero-2__title, .hero-3__title, .hero-4__title, .hero-5__title {
+        font-size: 36px;
+      }
+      .hero-4__features {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-title">
+    <h1>🎨 Hero Section Options</h1>
+    <p>Scroll down to view 5 different hero designs. Pick your favorite!</p>
+  </div>
+
+  <!-- ==========================================
+       HERO OPTION 1: Split Layout
+       ========================================== -->
+  <div class="hero-option">
+    <div class="hero-option__label">Option 1: Split Layout with Image</div>
+    <div class="hero-1">
+      <div class="hero-1__content">
+        <div class="hero-1__badge">
+          ⚖️ Trusted Immigration Attorneys
+        </div>
+        <h1 class="hero-1__title">
+          Unsure About Your <span>Immigration Status?</span>
+        </h1>
+        <p class="hero-1__subtitle">
+          You don't have to face it alone. At Ehsan Law, we help immigrants nationwide navigate every stage — from asylum to citizenship — so you can move forward with confidence.
+        </p>
+        <div class="hero-1__cta">
+          <a href="#" class="btn btn-primary btn-lg">Schedule Consultation</a>
+          <a href="#" class="btn btn-secondary btn-lg">Call (206) 234-6883</a>
+        </div>
+      </div>
+      <div class="hero-1__image">
+        <img src="https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Attorney consultation">
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       HERO OPTION 2: Centered with Stats
+       ========================================== -->
+  <div class="hero-option">
+    <div class="hero-option__label">Option 2: Centered with Stats</div>
+    <div class="hero-2">
+      <div class="hero-2__content">
+        <div class="hero-2__badge">Immigration Law Firm</div>
+        <h1 class="hero-2__title">Fighting for Your<br>American Dream</h1>
+        <p class="hero-2__subtitle">
+          From asylum and deportation defense to family petitions and citizenship — we've helped hundreds of immigrants build new lives in America.
+        </p>
+        <div class="hero-2__cta">
+          <a href="#" class="btn btn-primary btn-lg">Free Case Review</a>
+          <a href="#" class="btn btn-secondary btn-lg">Call Now</a>
+        </div>
+        <div class="hero-2__stats">
+          <div class="hero-2__stat">
+            <div class="hero-2__stat-number">500+</div>
+            <div class="hero-2__stat-label">Cases Won</div>
+          </div>
+          <div class="hero-2__stat">
+            <div class="hero-2__stat-number">400+</div>
+            <div class="hero-2__stat-label">Happy Clients</div>
+          </div>
+          <div class="hero-2__stat">
+            <div class="hero-2__stat-number">2</div>
+            <div class="hero-2__stat-label">Office Locations</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       HERO OPTION 3: Minimal Large Text
+       ========================================== -->
+  <div class="hero-option">
+    <div class="hero-option__label">Option 3: Minimal with Large Text</div>
+    <div class="hero-3">
+      <div class="container">
+        <div class="hero-3__content">
+          <div class="hero-3__eyebrow">Ehsan Law, PLLC</div>
+          <h1 class="hero-3__title">We Fight for Your<br>Opportunity to Build<br>a New Life.</h1>
+          <div class="hero-3__line"></div>
+          <p class="hero-3__subtitle">
+            Because we've lived the journey ourselves. From refugee to immigration lawyer — we understand what's at stake.
+          </p>
+          <div class="hero-3__cta">
+            <a href="#" class="btn btn-primary btn-lg">Get Started Today</a>
+            <a href="tel:+12062346883" class="hero-3__phone">
+              <span class="hero-3__phone-icon">📞</span>
+              (206) 234-6883
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       HERO OPTION 4: Card Style
+       ========================================== -->
+  <div class="hero-option">
+    <div class="hero-option__label">Option 4: With Consultation Card</div>
+    <div class="hero-4">
+      <div class="container">
+        <div class="hero-4__grid">
+          <div class="hero-4__content">
+            <div class="hero-4__trust-badge">
+              ✓ Serving Immigrants Nationwide Since 2015
+            </div>
+            <h1 class="hero-4__title">
+              Your Immigration Journey <em>Starts Here</em>
+            </h1>
+            <p class="hero-4__subtitle">
+              Whether you're facing deportation, seeking asylum, or reuniting with family — our experienced attorneys will guide you every step of the way.
+            </p>
+            <div class="hero-4__features">
+              <div class="hero-4__feature">
+                <span class="hero-4__feature-icon">✓</span>
+                Asylum & Refugee Cases
+              </div>
+              <div class="hero-4__feature">
+                <span class="hero-4__feature-icon">✓</span>
+                Deportation Defense
+              </div>
+              <div class="hero-4__feature">
+                <span class="hero-4__feature-icon">✓</span>
+                Family Immigration
+              </div>
+              <div class="hero-4__feature">
+                <span class="hero-4__feature-icon">✓</span>
+                Citizenship & Green Cards
+              </div>
+            </div>
+          </div>
+          <div class="hero-4__card">
+            <h3 class="hero-4__card-title">Schedule Your Case Review</h3>
+            <p class="hero-4__card-text">
+              Call us today for a confidential consultation. We'll review your case and help you understand your options.
+            </p>
+            <a href="tel:+12062346883" class="hero-4__card-phone">
+              📞 (206) 234-6883
+            </a>
+            <a href="#" class="hero-4__card-btn">Book Consultation Online</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       HERO OPTION 5: Background Image with Quote
+       ========================================== -->
+  <div class="hero-option">
+    <div class="hero-option__label">Option 5: With Founder Quote</div>
+    <div class="hero-5">
+      <div class="hero-5__content">
+        <div class="hero-5__label">Immigration Attorneys</div>
+        <h1 class="hero-5__title">Protecting Your Future.<br>Defending Your Rights.</h1>
+        <p class="hero-5__subtitle">
+          At Ehsan Law, we help immigrants nationwide navigate complex legal challenges with compassion, integrity, and relentless dedication.
+        </p>
+        <div class="hero-5__quote">
+          <p class="hero-5__quote-text">
+            "We advocate for your opportunity to build a new life in the U.S. — because we've lived the journey."
+          </p>
+          <p class="hero-5__quote-author">— Asif Ehsan, Founder</p>
+        </div>
+        <div class="hero-5__cta">
+          <a href="#" class="btn btn-primary btn-lg">Start Your Case</a>
+          <a href="#" class="btn btn-secondary btn-lg">Call (206) 234-6883</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; padding: 60px 20px; background: var(--color-navy-800); color: white;">
+    <h2 style="margin-bottom: 10px;">Which one do you like?</h2>
+    <p style="opacity: 0.7;">Let me know (1, 2, 3, 4, or 5) and I'll implement it!</p>
+  </div>
+
+</body>
+</html>

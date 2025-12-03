@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <defs>
+    <linearGradient id="goldGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4a853"/>
+      <stop offset="50%" stop-color="#c9a54d"/>
+      <stop offset="100%" stop-color="#b8944a"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Shield Icon with E -->
+  <g transform="translate(5, 5)">
+    <!-- Shield shape -->
+    <path d="M25 0 L50 8 L50 28 C50 40 25 50 25 50 C25 50 0 40 0 28 L0 8 L25 0 Z" 
+          fill="#ffffff" stroke="url(#goldGradLight)" stroke-width="2"/>
+    
+    <!-- Letter E inside shield -->
+    <text x="25" y="34" 
+          font-family="Georgia, 'Times New Roman', serif" 
+          font-size="28" 
+          font-weight="700" 
+          fill="#1a2a4a" 
+          text-anchor="middle">E</text>
+  </g>
+  
+  <!-- Main Text: EHSAN LAW -->
+  <text x="65" y="32" 
+        font-family="Georgia, 'Times New Roman', serif" 
+        font-size="24" 
+        font-weight="700" 
+        fill="#ffffff" 
+        letter-spacing="1">EHSAN LAW</text>
+  
+  <!-- Tagline -->
+  <text x="65" y="48" 
+        font-family="system-ui, -apple-system, sans-serif" 
+        font-size="10" 
+        font-weight="500" 
+        fill="#c9a54d" 
+        letter-spacing="1.5">IMMIGRATION ATTORNEYS</text>
+</svg>
