@@ -223,5 +223,74 @@
       });
     });
 
+    // ============================================
+    // COUNTER ANIMATION
+    // Numbers count up when scrolled into view
+    // ============================================
+    
+    function animateCounter(element) {
+      var target = parseInt(element.dataset.count, 10);
+      var suffix = element.dataset.suffix || '';
+      var duration = 2000; // 2 seconds
+      var start = 0;
+      var startTime = null;
+      
+      function easeOutQuart(t) {
+        return 1 - Math.pow(1 - t, 4);
+      }
+      
+      function updateCounter(currentTime) {
+        if (!startTime) startTime = currentTime;
+        var elapsed = currentTime - startTime;
+        var progress = Math.min(elapsed / duration, 1);
+        var easedProgress = easeOutQuart(progress);
+        var currentValue = Math.floor(easedProgress * target);
+        
+        element.textContent = currentValue + suffix;
+        
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = target + suffix;
+        }
+      }
+      
+      requestAnimationFrame(updateCounter);
+    }
+    
+    // Intersection Observer for counter animation
+    var counterElements = document.querySelectorAll('[data-count]');
+    var countersAnimated = false;
+    
+    if (counterElements.length > 0 && 'IntersectionObserver' in window) {
+      var counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !countersAnimated) {
+            countersAnimated = true;
+            counterElements.forEach(function(counter) {
+              animateCounter(counter);
+            });
+            counterObserver.disconnect();
+          }
+        });
+      }, {
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px'
+      });
+      
+      // Observe the stats grid
+      var statsGrid = document.querySelector('.stats-grid');
+      if (statsGrid) {
+        counterObserver.observe(statsGrid);
+      }
+    } else {
+      // Fallback for browsers without IntersectionObserver
+      counterElements.forEach(function(counter) {
+        var target = counter.dataset.count;
+        var suffix = counter.dataset.suffix || '';
+        counter.textContent = target + suffix;
+      });
+    }
+
   });
 })();
