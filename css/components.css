@@ -935,6 +935,23 @@ body.menu-open {
   margin-top: var(--space-12);
 }
 
+.process-cta .btn {
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  .process-cta .btn {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-4);
+  }
+  
+  .process-cta .btn .icon {
+    margin: 0 auto;
+  }
+}
+
 /* ============================================
    TESTIMONIALS GRID
    ============================================ */

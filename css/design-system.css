@@ -469,6 +469,22 @@ h6, .h6 {
   font-size: var(--text-xl);
 }
 
+/* Responsive button sizes */
+@media (max-width: 640px) {
+  .btn-xl {
+    padding: var(--space-4) var(--space-6);
+    font-size: var(--text-base);
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+  }
+  
+  .btn-lg {
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--text-base);
+  }
+}
+
 /* Phone Button - Special Styling */
 .btn-phone {
   background: var(--color-teal-600);
