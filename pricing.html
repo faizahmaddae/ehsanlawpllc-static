@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website Development Pricing - Ehsan Law, PLLC. Clear, transparent pricing for static and WordPress website solutions.">
+  
+  <title>Website Development Pricing | Ehsan Law, PLLC</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <style>
+    /* ============================================
+       PRICING PAGE STYLES
+       ============================================ */
+
+    .pricing-hero {
+      background: linear-gradient(135deg, var(--color-navy-900) 0%, var(--color-navy-700) 100%);
+      padding: var(--space-20) 0 var(--space-16);
+      text-align: center;
+      color: var(--color-white);
+    }
+
+    .pricing-hero__title {
+      font-size: var(--text-4xl);
+      font-weight: var(--font-bold);
+      margin-bottom: var(--space-4);
+      letter-spacing: var(--tracking-tight);
+    }
+
+    .pricing-hero__subtitle {
+      font-size: var(--text-lg);
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: var(--leading-relaxed);
+    }
+
+    /* Pricing Sections */
+    .pricing-section {
+      padding: var(--space-16) 0;
+    }
+
+    .pricing-section--static {
+      background: var(--color-gray-50);
+    }
+
+    .pricing-section--wordpress {
+      background: var(--color-white);
+    }
+
+    .pricing-section__header {
+      text-align: center;
+      margin-bottom: var(--space-12);
+    }
+
+    .pricing-section__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-4);
+      background: var(--color-navy-800);
+      color: var(--color-gold-400);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: var(--font-semibold);
+      margin-bottom: var(--space-4);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+    }
+
+    .pricing-section__badge--wp {
+      background: linear-gradient(135deg, #21759b 0%, #1e6a8d 100%);
+      color: var(--color-white);
+    }
+
+    .pricing-section__title {
+      font-size: var(--text-3xl);
+      font-weight: var(--font-bold);
+      color: var(--color-navy-900);
+      margin-bottom: var(--space-3);
+    }
+
+    .pricing-section__desc {
+      font-size: var(--text-base);
+      color: var(--color-gray-600);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Pricing Cards Grid */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: var(--space-6);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .pricing-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* Pricing Card */
+    .pricing-card {
+      background: var(--color-white);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--color-gray-200);
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition-base);
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--color-gold-400);
+    }
+
+    .pricing-card--featured {
+      border: 2px solid var(--color-gold-500);
+      box-shadow: var(--shadow-lg), var(--shadow-gold);
+    }
+
+    .pricing-card--featured::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-gold-500);
+      color: var(--color-navy-900);
+      padding: var(--space-1) var(--space-4);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: var(--font-bold);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+    }
+
+    .pricing-card__languages {
+      display: flex;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+    }
+
+    .pricing-card__lang-badge {
+      padding: var(--space-1) var(--space-2);
+      background: var(--color-gray-100);
+      color: var(--color-gray-700);
+      border-radius: var(--radius-sm);
+      font-size: var(--text-xs);
+      font-weight: var(--font-medium);
+    }
+
+    .pricing-card__lang-badge--active {
+      background: var(--color-navy-800);
+      color: var(--color-white);
+    }
+
+    .pricing-card__name {
+      font-size: var(--text-lg);
+      font-weight: var(--font-bold);
+      color: var(--color-navy-900);
+      margin-bottom: var(--space-2);
+      line-height: var(--leading-snug);
+    }
+
+    .pricing-card__price {
+      font-size: var(--text-3xl);
+      font-weight: var(--font-extrabold);
+      color: var(--color-navy-900);
+      margin-bottom: var(--space-2);
+    }
+
+    .pricing-card__price-range {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-bold);
+    }
+
+    .pricing-card__price-note {
+      font-size: var(--text-sm);
+      color: var(--color-gray-500);
+      margin-bottom: var(--space-4);
+      font-style: italic;
+    }
+
+    .pricing-card__calculation {
+      font-size: var(--text-xs);
+      color: var(--color-gray-500);
+      background: var(--color-gray-50);
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-4);
+    }
+
+    .pricing-card__divider {
+      height: 1px;
+      background: var(--color-gray-200);
+      margin: var(--space-4) 0;
+    }
+
+    .pricing-card__includes-title {
+      font-size: var(--text-sm);
+      font-weight: var(--font-semibold);
+      color: var(--color-gray-600);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+      margin-bottom: var(--space-3);
+    }
+
+    .pricing-card__features {
+      list-style: none;
+      flex-grow: 1;
+    }
+
+    .pricing-card__feature {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--color-gray-700);
+      margin-bottom: var(--space-2);
+      line-height: var(--leading-normal);
+    }
+
+    .pricing-card__feature-icon {
+      width: 16px;
+      height: 16px;
+      color: var(--color-success);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pricing-card__note {
+      font-size: var(--text-xs);
+      color: var(--color-gray-500);
+      background: var(--color-gray-50);
+      padding: var(--space-3);
+      border-radius: var(--radius-md);
+      margin-top: var(--space-4);
+      border-left: 3px solid var(--color-gold-400);
+    }
+
+    /* CMS Note */
+    .cms-note {
+      background: linear-gradient(135deg, rgba(21, 117, 155, 0.05) 0%, rgba(21, 117, 155, 0.1) 100%);
+      border: 1px solid rgba(21, 117, 155, 0.2);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      margin-bottom: var(--space-10);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cms-note__icon {
+      width: 32px;
+      height: 32px;
+      color: #21759b;
+      flex-shrink: 0;
+    }
+
+    .cms-note__content {
+      flex-grow: 1;
+    }
+
+    .cms-note__title {
+      font-size: var(--text-base);
+      font-weight: var(--font-semibold);
+      color: var(--color-navy-900);
+      margin-bottom: var(--space-1);
+    }
+
+    .cms-note__text {
+      font-size: var(--text-sm);
+      color: var(--color-gray-600);
+      line-height: var(--leading-relaxed);
+    }
+
+    /* CTA Section */
+    .pricing-cta {
+      background: linear-gradient(135deg, var(--color-navy-900) 0%, var(--color-navy-700) 100%);
+      padding: var(--space-16) 0;
+      text-align: center;
+      color: var(--color-white);
+    }
+
+    .pricing-cta__title {
+      font-size: var(--text-3xl);
+      font-weight: var(--font-bold);
+      margin-bottom: var(--space-4);
+    }
+
+    .pricing-cta__text {
+      font-size: var(--text-lg);
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 600px;
+      margin: 0 auto var(--space-8);
+      line-height: var(--leading-relaxed);
+    }
+
+    .pricing-cta__buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    @media (min-width: 640px) {
+      .pricing-cta__buttons {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    .pricing-cta__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-4) var(--space-8);
+      font-size: var(--text-base);
+      font-weight: var(--font-semibold);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      transition: all var(--transition-base);
+    }
+
+    .pricing-cta__btn--primary {
+      background: var(--color-gold-500);
+      color: var(--color-navy-900);
+    }
+
+    .pricing-cta__btn--primary:hover {
+      background: var(--color-gold-400);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-gold);
+    }
+
+    .pricing-cta__btn--secondary {
+      background: transparent;
+      color: var(--color-white);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .pricing-cta__btn--secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Trust Badges */
+    .trust-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-8);
+      margin-top: var(--space-10);
+      padding-top: var(--space-8);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .trust-badge__icon {
+      width: 20px;
+      height: 20px;
+      color: var(--color-gold-400);
+    }
+
+    /* Comparison Helper */
+    .comparison-helper {
+      background: var(--color-white);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-lg);
+      margin-top: var(--space-12);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .comparison-helper__title {
+      font-size: var(--text-xl);
+      font-weight: var(--font-bold);
+      color: var(--color-navy-900);
+      text-align: center;
+      margin-bottom: var(--space-6);
+    }
+
+    .comparison-helper__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    @media (min-width: 640px) {
+      .comparison-helper__grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .comparison-helper__item {
+      padding: var(--space-4);
+      background: var(--color-gray-50);
+      border-radius: var(--radius-lg);
+    }
+
+    .comparison-helper__item-title {
+      font-size: var(--text-base);
+      font-weight: var(--font-semibold);
+      color: var(--color-navy-900);
+      margin-bottom: var(--space-2);
+    }
+
+    .comparison-helper__item-text {
+      font-size: var(--text-sm);
+      color: var(--color-gray-600);
+      line-height: var(--leading-relaxed);
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ============================================
+       TOP BAR - Contact & Language
+       ============================================ -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar__inner">
+        <div class="top-bar__contact">
+          <a href="tel:+12062346883" class="top-bar__phone">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            <span>(206) 234-6883</span>
+          </a>
+          <span class="top-bar__divider">|</span>
+          <span class="top-bar__text">Serving Immigrants Nationwide</span>
+        </div>
+        
+        <div class="top-bar__right">
+          <!-- Language Switcher -->
+          <div class="lang-switcher">
+            <button class="lang-btn lang-btn--active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">فارسی</button>
+            <button class="lang-btn" data-lang="ps">پښتو</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       HEADER - Main Navigation
+       ============================================ -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header__inner">
+        <!-- Logo -->
+        <a href="index.html" class="header__logo">
+          <img src="assets/logo.svg" alt="Ehsan Law, PLLC - Immigration Attorneys" class="header__logo-img" style="height: 50px; width: auto;">
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="header__nav" aria-label="Main navigation">
+          <ul class="header__nav-list">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li class="has-dropdown">
+              <a href="practice-areas.html" class="nav-link">Practice Areas</a>
+              <div class="dropdown-menu">
+                <a href="practice-areas.html#asylum" class="dropdown-item">Asylum</a>
+                <a href="practice-areas.html#deportation" class="dropdown-item">Deportation Defense</a>
+                <a href="practice-areas.html#family" class="dropdown-item">Family Immigration</a>
+                <a href="practice-areas.html#citizenship" class="dropdown-item">Citizenship & Naturalization</a>
+                <a href="practice-areas.html#appeals" class="dropdown-item">BIA & Federal Appeals</a>
+                <a href="practice-areas.html#siv" class="dropdown-item">Special Immigrant Visas</a>
+                <a href="practice-areas.html#mandamus" class="dropdown-item">Mandamus Lawsuits</a>
+              </div>
+            </li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="attorney.html" class="nav-link">Our Team</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header CTA -->
+        <div class="header__cta">
+          <a href="tel:+12062346883" class="btn btn-primary">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            Free Consultation
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="header__menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger">
+            <span class="hamburger__line"></span>
+            <span class="hamburger__line"></span>
+            <span class="hamburger__line"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <ul class="mobile-nav__list">
+        <li><a href="index.html" class="mobile-nav__link">Home</a></li>
+        <li class="mobile-nav__has-submenu">
+          <button class="mobile-nav__link mobile-nav__submenu-toggle">
+            Practice Areas
+            <svg class="mobile-nav__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <ul class="mobile-nav__submenu">
+            <li><a href="practice-areas.html#asylum">Asylum</a></li>
+            <li><a href="practice-areas.html#deportation">Deportation Defense</a></li>
+            <li><a href="practice-areas.html#family">Family Immigration</a></li>
+            <li><a href="practice-areas.html#citizenship">Citizenship & Naturalization</a></li>
+            <li><a href="practice-areas.html#appeals">BIA & Federal Appeals</a></li>
+            <li><a href="practice-areas.html#siv">Special Immigrant Visas</a></li>
+            <li><a href="practice-areas.html#mandamus">Mandamus Lawsuits</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html" class="mobile-nav__link">About Us</a></li>
+        <li><a href="attorney.html" class="mobile-nav__link">Our Team</a></li>
+        <li><a href="contact.html" class="mobile-nav__link">Contact</a></li>
+      </ul>
+      <div class="mobile-nav__cta">
+        <a href="tel:+12062346883" class="btn btn-primary btn-lg btn-block">
+          <svg class="icon icon-sm" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+          </svg>
+          Call (206) 234-6883
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============================================
+       MAIN CONTENT
+       ============================================ -->
+  <main id="main-content">
+    
+    <!-- Hero Section -->
+    <section class="pricing-hero">
+      <div class="container">
+        <h1 class="pricing-hero__title">Website Development Pricing</h1>
+        <p class="pricing-hero__subtitle">
+          Clear, transparent pricing for your law firm website. Choose the solution that fits your needs and budget.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         STATIC WEBSITE PRICING
+         ============================================ -->
+    <section class="pricing-section pricing-section--static">
+      <div class="container">
+        <div class="pricing-section__header">
+          <span class="pricing-section__badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+            Fast & Lightweight
+          </span>
+          <h2 class="pricing-section__title">Static Website</h2>
+          <p class="pricing-section__desc">
+            Lightning-fast, secure, and cost-effective. Perfect for firms that want a professional web presence without ongoing maintenance.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          
+          <!-- Static - English Only -->
+          <div class="pricing-card">
+            <div class="pricing-card__languages">
+              <span class="pricing-card__lang-badge pricing-card__lang-badge--active">English</span>
+            </div>
+            <h3 class="pricing-card__name">Static Website<br>English Only</h3>
+            <div class="pricing-card__price">$500</div>
+            <p class="pricing-card__price-note">Same structure as current demo</p>
+            <div class="pricing-card__divider"></div>
+            <p class="pricing-card__includes-title">What's Included</p>
+            <ul class="pricing-card__features">
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Final UI polish & refinements
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Full responsive fixes
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Very small content/layout tweaks
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Production deployment
+              </li>
+            </ul>
+          </div>
+
+          <!-- Static - English + Small Changes -->
+          <div class="pricing-card">
+            <div class="pricing-card__languages">
+              <span class="pricing-card__lang-badge pricing-card__lang-badge--active">English</span>
+              <span class="pricing-card__lang-badge">+ Changes</span>
+            </div>
+            <h3 class="pricing-card__name">Static Website<br>English + Changes</h3>
+            <div class="pricing-card__price pricing-card__price-range">$650 – $800</div>
+            <p class="pricing-card__price-note">Final price depends on scope</p>
+            <div class="pricing-card__divider"></div>
+            <p class="pricing-card__includes-title">What's Included</p>
+            <ul class="pricing-card__features">
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Everything in base package
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Minor layout adjustments
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Section modifications
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Custom content updates
+              </li>
+            </ul>
+            <div class="pricing-card__note">
+              <strong>Note:</strong> Final price determined after reviewing your specific list of requested changes.
+            </div>
+          </div>
+
+          <!-- Static - 2 Languages -->
+          <div class="pricing-card pricing-card--featured">
+            <div class="pricing-card__languages">
+              <span class="pricing-card__lang-badge pricing-card__lang-badge--active">English</span>
+              <span class="pricing-card__lang-badge pricing-card__lang-badge--active">Dari</span>
+            </div>
+            <h3 class="pricing-card__name">Static Website<br>2 Languages</h3>
+            <div class="pricing-card__price">$700</div>
+            <div class="pricing-card__calculation">
+              $500 base + $200 per added language
+            </div>
+            <div class="pricing-card__divider"></div>
+            <p class="pricing-card__includes-title">What's Included</p>
+            <ul class="pricing-card__features">
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Everything in base package
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Full English content
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Full Dari translation
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Language switcher
+              </li>
+            </ul>
+          </div>
+
+          <!-- Static - 3 Languages -->
+          <div class="pricing-card">
+            <div class="pricing-card__languages">
+              <span class="pricing-card__lang-badge pricing-card__lang-badge--active">English</span>
+              <span class="pricing-card__lang-badge pricing-card__lang-badge--active">Dari</span>
+              <span class="pricing-card__lang-badge pricing-card__lang-badge--active">Pashto</span>
+            </div>
+            <h3 class="pricing-card__name">Static Website<br>3 Languages</h3>
+            <div class="pricing-card__price">$900</div>
+            <div class="pricing-card__calculation">
+              $500 base + $200 + $200
+            </div>
+            <div class="pricing-card__divider"></div>
+            <p class="pricing-card__includes-title">What's Included</p>
+            <ul class="pricing-card__features">
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Everything in base package
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Full English content
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Full Dari translation
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Full Pashto translation
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Language switcher
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         WORDPRESS WEBSITE PRICING
+         ============================================ -->
+    <section class="pricing-section pricing-section--wordpress">
+      <div class="container">
+        <div class="pricing-section__header">
+          <span class="pricing-section__badge pricing-section__badge--wp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 19.5c-5.238 0-9.5-4.262-9.5-9.5S6.762 2.5 12 2.5s9.5 4.262 9.5 9.5-4.262 9.5-9.5 9.5z"/>
+              <path d="M3.5 12l3.519 9.648c-2.151-1.442-3.519-3.861-3.519-6.648zm16.981-.001c0 2.042-.551 3.949-1.51 5.593L15.91 8.747c.955-.032 1.816-.095 1.816-.095.856-.095.754-1.363-.102-1.303 0 0-2.573.191-4.233.191-1.571 0-4.209-.191-4.209-.191-.857-.06-.96 1.239-.103 1.303 0 0 .799.063 1.662.095l2.472 6.772-3.472 10.41-5.778-17.177c.955-.031 1.815-.095 1.815-.095.857-.095.754-1.363-.101-1.303 0 0-2.573.191-4.234.191-.298 0-.649-.007-1.023-.019C5.025 4.376 8.236 2.5 12 2.5c2.786 0 5.316 1.062 7.227 2.787-.046-.003-.091-.009-.14-.009-1.3 0-2.218 1.108-2.218 2.295 0 1.063.623 1.962 1.283 3.026.497.857.74 1.916.74 3.403zm-8.503 1.782l2.884 7.897c.007.017.019.032.027.048-.952.346-1.98.532-3.06.532-.909 0-1.782-.145-2.605-.407l2.754-8.07z"/>
+            </svg>
+            Content Management System
+          </span>
+          <h2 class="pricing-section__title">WordPress Website</h2>
+          <p class="pricing-section__desc">
+            Full content management system with easy editing. Perfect for firms that want to update content themselves without technical knowledge.
+          </p>
+        </div>
+
+        <!-- CMS Note -->
+        <div class="cms-note">
+          <svg class="cms-note__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12.01" y2="8"/>
+          </svg>
+          <div class="cms-note__content">
+            <p class="cms-note__title">Why WordPress costs more than Static?</p>
+            <p class="cms-note__text">
+              WordPress is a CMS-based build that includes a database, admin panel, editable pages, and requires more complex setup, security configuration, and hosting requirements. This additional infrastructure and functionality justifies the higher investment.
+            </p>
+          </div>
+        </div>
+
+        <div class="pricing-grid">
+          
+          <!-- WordPress - English Only -->
+          <div class="pricing-card">
+            <div class="pricing-card__languages">
+              <span class="pricing-card__lang-badge pricing-card__lang-badge--active">English</span>
+            </div>
+            <h3 class="pricing-card__name">WordPress Website<br>English Only</h3>
+            <div class="pricing-card__price">$850</div>
+            <p class="pricing-card__price-note">Same structure as demo</p>
+            <div class="pricing-card__divider"></div>
+            <p class="pricing-card__includes-title">What's Included</p>
+            <ul class="pricing-card__features">
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Full WordPress build
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Editable pages & content
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Responsive design setup
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Contact forms
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Production deployment
+              </li>
+            </ul>
+          </div>
+
+          <!-- WordPress - English + Small Changes -->
+          <div class="pricing-card">
+            <div class="pricing-card__languages">
+              <span class="pricing-card__lang-badge pricing-card__lang-badge--active">English</span>
+              <span class="pricing-card__lang-badge">+ Changes</span>
+            </div>
+            <h3 class="pricing-card__name">WordPress Website<br>English + Changes</h3>
+            <div class="pricing-card__price pricing-card__price-range">$1,000 – $1,200</div>
+            <p class="pricing-card__price-note">Final price depends on scope</p>
+            <div class="pricing-card__divider"></div>
+            <p class="pricing-card__includes-title">What's Included</p>
+            <ul class="pricing-card__features">
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Everything in base package
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Extra UI adjustments
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Additional page layouts
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Custom functionality
+              </li>
+            </ul>
+            <div class="pricing-card__note">
+              <strong>Note:</strong> Final price determined after reviewing your specific list of requested changes.
+            </div>
+          </div>
+
+          <!-- WordPress - 2 Languages -->
+          <div class="pricing-card pricing-card--featured">
+            <div class="pricing-card__languages">
+              <span class="pricing-card__lang-badge pricing-card__lang-badge--active">English</span>
+              <span class="pricing-card__lang-badge pricing-card__lang-badge--active">Dari</span>
+            </div>
+            <h3 class="pricing-card__name">WordPress Website<br>2 Languages</h3>
+            <div class="pricing-card__price">$1,100</div>
+            <div class="pricing-card__calculation">
+              $850 base + $250 per added language
+            </div>
+            <div class="pricing-card__divider"></div>
+            <p class="pricing-card__includes-title">What's Included</p>
+            <ul class="pricing-card__features">
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Everything in base package
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Full English content
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Full Dari translation
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Multilingual plugin setup
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Easy language editing
+              </li>
+            </ul>
+          </div>
+
+          <!-- WordPress - 3 Languages -->
+          <div class="pricing-card">
+            <div class="pricing-card__languages">
+              <span class="pricing-card__lang-badge pricing-card__lang-badge--active">English</span>
+              <span class="pricing-card__lang-badge pricing-card__lang-badge--active">Dari</span>
+              <span class="pricing-card__lang-badge pricing-card__lang-badge--active">Pashto</span>
+            </div>
+            <h3 class="pricing-card__name">WordPress Website<br>3 Languages</h3>
+            <div class="pricing-card__price">$1,350</div>
+            <div class="pricing-card__calculation">
+              $850 base + $250 + $250
+            </div>
+            <div class="pricing-card__divider"></div>
+            <p class="pricing-card__includes-title">What's Included</p>
+            <ul class="pricing-card__features">
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Everything in base package
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Full English content
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Full Dari translation
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Full Pashto translation
+              </li>
+              <li class="pricing-card__feature">
+                <svg class="pricing-card__feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Multilingual plugin setup
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Comparison Helper -->
+        <div class="comparison-helper">
+          <h3 class="comparison-helper__title">Not sure which to choose?</h3>
+          <div class="comparison-helper__grid">
+            <div class="comparison-helper__item">
+              <p class="comparison-helper__item-title">Choose Static if...</p>
+              <p class="comparison-helper__item-text">
+                You want the fastest, most secure site with minimal maintenance. Content changes will be handled by your developer.
+              </p>
+            </div>
+            <div class="comparison-helper__item">
+              <p class="comparison-helper__item-title">Choose WordPress if...</p>
+              <p class="comparison-helper__item-text">
+                You want to edit content yourself, add blog posts, or make frequent updates without needing a developer.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         CTA SECTION
+         ============================================ -->
+    <section class="pricing-cta">
+      <div class="container">
+        <h2 class="pricing-cta__title">Ready to Get Started?</h2>
+        <p class="pricing-cta__text">
+          Let's discuss your project and find the perfect solution for your law firm. Book a free consultation to review your requirements.
+        </p>
+        <div class="pricing-cta__buttons">
+          <a href="contact.html" class="pricing-cta__btn pricing-cta__btn--primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            Book a Consultation
+          </a>
+          <a href="tel:+12062346883" class="pricing-cta__btn pricing-cta__btn--secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            Call (206) 234-6883
+          </a>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="trust-badges">
+          <div class="trust-badge">
+            <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            100% Secure Payment
+          </div>
+          <div class="trust-badge">
+            <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Fast Turnaround
+          </div>
+          <div class="trust-badge">
+            <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            Satisfaction Guaranteed
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Brand Column -->
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">
+            <img src="assets/logo-light.svg" alt="Ehsan Law, PLLC">
+          </a>
+          <p class="footer__tagline">
+            Immigration Attorneys Helping You Stay in the U.S. Legally. Fighting for immigrants' opportunity to build a new life in America.
+          </p>
+          <div class="footer__languages">
+            <span class="badge badge-gold">English</span>
+            <span class="badge badge-gold">فارسی</span>
+            <span class="badge badge-gold">پښتو</span>
+          </div>
+        </div>
+
+        <!-- Practice Areas -->
+        <div class="footer__column">
+          <h4 class="footer__column-title">Practice Areas</h4>
+          <ul class="footer__links">
+            <li><a href="practice-areas.html#asylum">Asylum</a></li>
+            <li><a href="practice-areas.html#deportation">Deportation Defense</a></li>
+            <li><a href="practice-areas.html#family">Family Immigration</a></li>
+            <li><a href="practice-areas.html#citizenship">Citizenship</a></li>
+            <li><a href="practice-areas.html#appeals">BIA & Federal Appeals</a></li>
+            <li><a href="practice-areas.html#siv">Special Immigrant Visas</a></li>
+            <li><a href="practice-areas.html#mandamus">Mandamus Lawsuits</a></li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer__column">
+          <h4 class="footer__column-title">Quick Links</h4>
+          <ul class="footer__links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="attorney.html">Our Team</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer__column">
+          <h4 class="footer__column-title">Contact Us</h4>
+          <div class="footer__contact">
+            <div class="footer__contact-item">
+              <strong>Seattle Office</strong>
+              <address>
+                15215 52nd Ave S, Suite 203<br>
+                Tukwila, WA 98188
+              </address>
+              <a href="tel:+12062346883">(206) 234-6883</a>
+            </div>
+            <div class="footer__contact-item">
+              <strong>Virginia Office</strong>
+              <address>
+                5100 Leesburg Pike, Suite 303-D<br>
+                Alexandria, VA 22302
+              </address>
+              <a href="tel:+15715440205">(571) 544-0205</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer__bottom">
+        <p class="footer__copyright">
+          © 2025 Ehsan Law, PLLC. All rights reserved. Attorney Advertising.
+        </p>
+        <div class="footer__legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
