@@ -25,28 +25,6 @@
        PRICING PAGE STYLES
        ============================================ */
 
-    .pricing-hero {
-      background: linear-gradient(135deg, var(--color-navy-900) 0%, var(--color-navy-700) 100%);
-      padding: var(--space-20) 0 var(--space-16);
-      text-align: center;
-      color: var(--color-white);
-    }
-
-    .pricing-hero__title {
-      font-size: var(--text-4xl);
-      font-weight: var(--font-bold);
-      margin-bottom: var(--space-4);
-      letter-spacing: var(--tracking-tight);
-    }
-
-    .pricing-hero__subtitle {
-      font-size: var(--text-lg);
-      color: rgba(255, 255, 255, 0.8);
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: var(--leading-relaxed);
-    }
-
     /* Pricing Sections */
     .pricing-section {
       padding: var(--space-16) 0;
@@ -313,101 +291,6 @@
       line-height: var(--leading-relaxed);
     }
 
-    /* CTA Section */
-    .pricing-cta {
-      background: linear-gradient(135deg, var(--color-navy-900) 0%, var(--color-navy-700) 100%);
-      padding: var(--space-16) 0;
-      text-align: center;
-      color: var(--color-white);
-    }
-
-    .pricing-cta__title {
-      font-size: var(--text-3xl);
-      font-weight: var(--font-bold);
-      margin-bottom: var(--space-4);
-    }
-
-    .pricing-cta__text {
-      font-size: var(--text-lg);
-      color: rgba(255, 255, 255, 0.8);
-      max-width: 600px;
-      margin: 0 auto var(--space-8);
-      line-height: var(--leading-relaxed);
-    }
-
-    .pricing-cta__buttons {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-4);
-    }
-
-    @media (min-width: 640px) {
-      .pricing-cta__buttons {
-        flex-direction: row;
-        justify-content: center;
-      }
-    }
-
-    .pricing-cta__btn {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      padding: var(--space-4) var(--space-8);
-      font-size: var(--text-base);
-      font-weight: var(--font-semibold);
-      border-radius: var(--radius-lg);
-      text-decoration: none;
-      transition: all var(--transition-base);
-    }
-
-    .pricing-cta__btn--primary {
-      background: var(--color-gold-500);
-      color: var(--color-navy-900);
-    }
-
-    .pricing-cta__btn--primary:hover {
-      background: var(--color-gold-400);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-gold);
-    }
-
-    .pricing-cta__btn--secondary {
-      background: transparent;
-      color: var(--color-white);
-      border: 2px solid rgba(255, 255, 255, 0.3);
-    }
-
-    .pricing-cta__btn--secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.5);
-    }
-
-    /* Trust Badges */
-    .trust-badges {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: var(--space-8);
-      margin-top: var(--space-10);
-      padding-top: var(--space-8);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .trust-badge {
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      font-size: var(--text-sm);
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    .trust-badge__icon {
-      width: 20px;
-      height: 20px;
-      color: var(--color-gold-400);
-    }
-
     /* Comparison Helper */
     .comparison-helper {
       background: var(--color-white);
@@ -571,16 +454,6 @@
        MAIN CONTENT
        ============================================ -->
   <main id="main-content">
-    
-    <!-- Hero Section -->
-    <section class="pricing-hero">
-      <div class="container">
-        <h1 class="pricing-hero__title">Website Development Pricing</h1>
-        <p class="pricing-hero__subtitle">
-          Clear, transparent pricing for your law firm website. Choose the solution that fits your needs and budget.
-        </p>
-      </div>
-    </section>
 
     <!-- ============================================
          STATIC WEBSITE PRICING
@@ -1010,56 +883,6 @@
                 You want to edit content yourself, add blog posts, or make frequent updates without needing a developer.
               </p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================
-         CTA SECTION
-         ============================================ -->
-    <section class="pricing-cta">
-      <div class="container">
-        <h2 class="pricing-cta__title">Ready to Get Started?</h2>
-        <p class="pricing-cta__text">
-          Let's discuss your project and find the perfect solution for your law firm. Book a free consultation to review your requirements.
-        </p>
-        <div class="pricing-cta__buttons">
-          <a href="contact.html" class="pricing-cta__btn pricing-cta__btn--primary">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
-            Book a Consultation
-          </a>
-          <a href="tel:+12062346883" class="pricing-cta__btn pricing-cta__btn--secondary">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-            </svg>
-            Call (206) 234-6883
-          </a>
-        </div>
-
-        <!-- Trust Badges -->
-        <div class="trust-badges">
-          <div class="trust-badge">
-            <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-            100% Secure Payment
-          </div>
-          <div class="trust-badge">
-            <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <polyline points="12 6 12 12 16 14"/>
-            </svg>
-            Fast Turnaround
-          </div>
-          <div class="trust-badge">
-            <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-              <polyline points="22 4 12 14.01 9 11.01"/>
-            </svg>
-            Satisfaction Guaranteed
           </div>
         </div>
       </div>
