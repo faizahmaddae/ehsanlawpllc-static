@@ -11,24 +11,42 @@
     // Elements
     var mobileToggle = document.querySelector('.header__mobile-toggle');
     var headerNav = document.querySelector('.header__nav');
+    var mobileMenu = document.querySelector('.mobile-menu');
     var header = document.querySelector('.header');
     
     // Mobile Menu Toggle
-    if (mobileToggle && headerNav) {
+    if (mobileToggle) {
       mobileToggle.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
         
-        var isOpen = headerNav.classList.contains('is-open');
-        
-        if (isOpen) {
-          headerNav.classList.remove('is-open');
-          document.body.classList.remove('menu-open');
-          mobileToggle.setAttribute('aria-expanded', 'false');
-        } else {
-          headerNav.classList.add('is-open');
-          document.body.classList.add('menu-open');
-          mobileToggle.setAttribute('aria-expanded', 'true');
+        // Check if we have the mobile-menu element (newer pattern)
+        if (mobileMenu) {
+          var isOpen = mobileMenu.classList.contains('is-open');
+          
+          if (isOpen) {
+            mobileMenu.classList.remove('is-open');
+            document.body.classList.remove('menu-open');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+          } else {
+            mobileMenu.classList.add('is-open');
+            document.body.classList.add('menu-open');
+            mobileToggle.setAttribute('aria-expanded', 'true');
+          }
+        }
+        // Fallback to header__nav pattern (older pattern)
+        else if (headerNav) {
+          var isOpen = headerNav.classList.contains('is-open');
+          
+          if (isOpen) {
+            headerNav.classList.remove('is-open');
+            document.body.classList.remove('menu-open');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+          } else {
+            headerNav.classList.add('is-open');
+            document.body.classList.add('menu-open');
+            mobileToggle.setAttribute('aria-expanded', 'true');
+          }
         }
       });
     }
