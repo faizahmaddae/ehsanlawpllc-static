@@ -652,6 +652,49 @@ h6, .h6 {
   color: var(--color-gray-500);
 }
 
+/* Google Reviews Styling */
+.google-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.google-icon {
+  flex-shrink: 0;
+}
+
+.google-rating__stars {
+  display: flex;
+  gap: 2px;
+}
+
+.google-rating__text {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--color-gray-700);
+}
+
+.star-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.testimonial-card__header {
+  margin-bottom: var(--space-4);
+}
+
+.testimonial-card__stars {
+  display: flex;
+  gap: 2px;
+}
+
+.testimonial-card--google .testimonial-card__quote::before {
+  display: none;
+}
+
 /* ============================================
    FORM COMPONENTS
    ============================================ */
