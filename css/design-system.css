@@ -9,16 +9,16 @@
 
 :root {
   /* Primary Colors - Authority & Trust */
-  --color-navy-900: #0a1628;
-  --color-navy-800: #0f2744;
-  --color-navy-700: #1a3a5c;
-  --color-navy-600: #1e4976;
-  --color-navy-500: #2563a8;
+  --color-navy-900: #1a2a4d;
+  --color-navy-800: #243a6d;
+  --color-navy-700: #2e4a8d;
+  --color-navy-600: #3860a8;
+  --color-navy-500: #4a78c0;
   
   /* Accent Colors - Hope & Warmth */
-  --color-gold-500: #d4a853;
-  --color-gold-400: #e4be6a;
-  --color-gold-300: #f0d38a;
+  --color-gold-500: #c6a757;
+  --color-gold-400: #d4b76a;
+  --color-gold-300: #e2c77d;
   --color-teal-600: #0d9488;
   --color-teal-500: #14b8a6;
   --color-teal-400: #2dd4bf;
