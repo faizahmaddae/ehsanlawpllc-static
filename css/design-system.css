@@ -874,8 +874,8 @@ h6, .h6 {
     content: '';
     position: absolute;
     top: 50%;
-    right: -16px;
-    width: 32px;
+    right: -12px;
+    width: 8px;
     height: 2px;
     background: var(--color-gray-300);
   }
